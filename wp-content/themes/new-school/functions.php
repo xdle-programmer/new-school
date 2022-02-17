@@ -69,7 +69,7 @@ function render_img_block_small_button($block)
 {
     $class = 'img-block';
 
-    echo '<div class="' . $class . '">';
+    echo '<div class="' . $class . ' ' . $class . '--small">';
     echo '<div class="' . $class . '__background-wrapper">';
     echo '<img class="' . $class . '__background" src="' . $block['фото_на_фон'] . '">';
     echo '</div>';
@@ -106,77 +106,93 @@ function render_text_block($block)
     echo '<div class="' . $class . '__items">';
 
     foreach ($block['блок_абзаца'] as $text) {
-        echo '<div class="' . $class . '__item">'.$text['абзац'].'</div>';
+        echo '<div class="' . $class . '__item">' . $text['абзац'] . '</div>';
     }
 
     echo '</div>';
 
     echo '</div>';
-
-
-
-
-    echo '<pre>';
-
-    print_r($block);
-
-    echo '</pre>';
-
 }
 
 function render_slider($block)
 {
 
-    echo '<pre>';
+    $class = 'slider';
 
-    print_r($block);
+    echo '<div class="' . $class . '">';
 
-    echo '</pre>';
+    foreach ($block as $slide) {
+        echo '<div class="' . $class . '__item">';
+        echo '<div class="' . $class . '__item-inner">';
+
+        echo '<div class="' . $class . '__item-img-wrapper">';
+        echo '<img class="' . $class . '__item-img" src="' . $slide['слайд']['фото'] . '">';
+        echo '</div>';
+        echo '<div class="' . $class . '__desc">';
+        echo '<div class="' . $class . '__desc-title">' . $slide['слайд']['заголовок'] . '</div>';
+        echo '<div class="' . $class . '__desc-text">' . $slide['слайд']['текст'] . '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
+
+    echo '</div>';
 
 }
 
 function render_group_numbers($block)
 {
 
-    echo '<pre>';
+    $class = 'group-numbers';
 
-    print_r($block);
+    echo '<div class="' . $class . ' layout">';
 
-    echo '</pre>';
+    echo '<div class="' . $class . '__title">';
+    render_title($block['заголовок']);
+    echo '</div>';
+
+    echo '<div class="' . $class . '__items ' . $class . '__items--' . $block['количество_блоков_в_линии'] . '">';
+
+    foreach ($block['блок_числа'] as $item) {
+        $group = $item['блок_числа'];
+
+        echo '<div class="' . $class . '__item">';
+        echo '<div class="' . $class . '__item-number">' . $group['число'] . '</div>';
+        echo '<div class="' . $class . '__item-text">' . $group['текст'] . '</div>';
+        echo '</div>';
+    }
+
+    echo '</div>';
+
+    echo '</div>';
 
 }
 
 function render_img_text_block($block)
 {
 
-    echo '<pre>';
-
-    print_r($block);
-
-    echo '</pre>';
-
-    return;
-
-    $class = 'img-block';
+    $class = 'img-text-block';
 
     echo '<div class="' . $class . '">';
-    echo '<div class="' . $class . '__background-wrapper">';
-    echo '<img class="' . $class . '__background" src="' . $block['фото_на_фон'] . '">';
-    echo '</div>';
 
     echo '<div class="' . $class . '__block layout">';
-    echo '<div class="' . $class . '__title-wrapper">';
-    echo '<div class="' . $class . '__title">' . $block['заголовок'] . '</div>';
-    echo '<div class="' . $class . '__subtitle">' . $block['подзаголовок'] . '</div>';
+
+    echo '<div class="' . $class . '__title">';
+    render_title($block['заголовок']);
     echo '</div>';
 
+    echo '<div class="' . $class . '__item">';
+    echo '<div class="' . $class . '__item-desc">';
+    echo '<div class="' . $class . '__item-desc-text">' . $block['текст'] . '</div>';
     echo '<a href="' . $block['ссылка_на_кнопке'] . '" class="' . $class . '__button">' . $block['текст_на_кнопке'] . '</a>';
-
-    echo '<div class="' . $class . '__geometry">';
-    echo '<div class="' . $class . '__geometry-elem ' . $class . '__geometry-elem--1"></div>';
-    echo '<div class="' . $class . '__geometry-elem ' . $class . '__geometry-elem--2"></div>';
-    echo '<div class="' . $class . '__geometry-elem ' . $class . '__geometry-elem--3"></div>';
     echo '</div>';
+
+    echo '<div class="' . $class . '__img-wrapper">';
+    echo '<img class="' . $class . '__img" src="' . $block['фото'] . '">';
+    echo '</div>';
+
+    echo '</div>';
+
     echo '</div>';
     echo '</div>';
 

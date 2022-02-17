@@ -7,6 +7,8 @@
 .img-block {
   position: relative;
 
+  $small: '.img-block--small';
+
   &__background-wrapper {
     position: absolute;
     @include absolute-fill;
@@ -16,6 +18,10 @@
       @include absolute-fill;
       @include gradient-magenta(-75);
       mix-blend-mode: overlay;
+
+      #{$small} & {
+        display: none;
+      }
     }
   }
 
@@ -42,10 +48,12 @@
     font-size: 7.8vw;
     line-height: 5.5vw;
     font-weight: 700;
+    filter: drop-shadow(3px 2px rgba(0, 0, 0, 0.5));
   }
 
   &__subtitle {
     font-size: 3.92vw;
+    filter: drop-shadow(3px 2px rgba(0, 0, 0, 0.5));
   }
 
   &__button {
@@ -58,6 +66,14 @@
     right: -0.78vw;
     font-size: 2.76vw;
     padding: 3.02vw 7.81vw;
+
+    #{$small} & {
+      position: static;
+      font-size: 2vw;
+      padding: 0.5vw 2.81vw;
+      width: fit-content;
+      margin-top: 4vw;
+    }
   }
 
   &__geometry {

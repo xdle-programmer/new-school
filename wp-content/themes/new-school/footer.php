@@ -12,7 +12,7 @@
 ?>
 
 	<footer class="footer">
-		Футер
+
 	</footer>
 
 </div><!-- #page -->

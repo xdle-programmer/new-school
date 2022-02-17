@@ -1,0 +1,76 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+
+.group-numbers {
+  padding-top: 1vw;
+
+  &__title {
+    margin-bottom: 2.8vw;
+  }
+
+  &__items {
+    display: grid;
+    grid-gap: 1.8vw;
+
+    &--1 {
+      grid-template-columns: repeat(1, 1fr)
+    }
+
+    &--2 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    &--3 {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    &--4 {
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    &--5 {
+      grid-template-columns: repeat(5, 1fr)
+    }
+
+    &--6 {
+      grid-template-columns: repeat(6, 1fr)
+    }
+
+    &--7 {
+      grid-template-columns: repeat(7, 1fr)
+    }
+
+    &--8 {
+      grid-template-columns: repeat(8, 1fr)
+    }
+
+    &--9 {
+      grid-template-columns: repeat(9, 1fr)
+    }
+
+    &--10 {
+      grid-template-columns: repeat(10, 1fr)
+    }
+
+  }
+
+  &__item {
+    box-shadow: 0 0 28px -4px rgba(0, 0, 0, .5);
+    text-align: center;
+    padding: 3vw 1vw;
+  }
+
+  &__item-number {
+    @include font-manrope;
+    font-size: 5vw;
+    font-weight: 700;
+  }
+
+  &__item-text {
+    @include font-calibri;
+    font-size: 2vw;
+  }
+}

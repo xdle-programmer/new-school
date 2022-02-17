@@ -1,0 +1,50 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.img-text-block {
+
+  &__block {
+    padding-top: 7vw;
+  }
+
+  &__title {
+    margin-bottom: 2vw;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 7fr 6fr;
+  }
+
+  &__item-desc {
+  }
+
+  &__item-desc-text {
+    @include font-calibri;
+    font-size: 2vw;
+    line-height: 2.9vw;
+    margin-bottom: 3vw;
+  }
+
+  &__button {
+    @include flex-row-center;
+    @include font-manrope;
+    background: var(--green-color);
+    color: var(--white-color);
+    font-size: 2vw;
+    padding: 0.5vw 2.81vw;
+    width: fit-content;
+  }
+
+  &__img-wrapper {
+    width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
