@@ -1,0 +1,22 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.text-block {
+  padding-top: 9.5vw;
+
+  &__title {
+    margin-bottom: 1.2vw;
+  }
+
+  &__items {
+  }
+
+  &__item {
+    @include font-calibri;
+    margin-bottom: .8vw;
+    font-size: 2.4vw;
+  }
+
+}

@@ -24,12 +24,12 @@ let getFiles = function (dir, files_, extension) {
 
 // Файлы стилей верстки
 let styleMarkupArray = [];
-getFiles(path.resolve(__dirname, './wp-content/themes/usb-travel/src/markup'), styleMarkupArray, 'scss');
-getFiles(path.resolve(__dirname, './wp-content/themes/usb-travel/src/markup'), styleMarkupArray, 'css');
+getFiles(path.resolve(__dirname, './wp-content/themes/new-school/src/markup'), styleMarkupArray, 'scss');
+getFiles(path.resolve(__dirname, './wp-content/themes/new-school/src/markup'), styleMarkupArray, 'css');
 
 // Js файлы верстки, включая точку входа
-let jsMarkupArray = [path.resolve(__dirname, './wp-content/themes/usb-travel/src/index.js')];
-getFiles(path.resolve(__dirname, './wp-content/themes/usb-travel/src/markup'), jsMarkupArray, 'js');
+let jsMarkupArray = [path.resolve(__dirname, './wp-content/themes/new-school/src/index.js')];
+getFiles(path.resolve(__dirname, './wp-content/themes/new-school/src/markup'), jsMarkupArray, 'js');
 
 let fullArray = jsMarkupArray.concat(styleMarkupArray);
 
@@ -40,7 +40,7 @@ module.exports = {
     },
     output: {
         filename: 'scripts.js',
-        path: path.resolve(__dirname, './wp-content/themes/usb-travel'),
+        path: path.resolve(__dirname, './wp-content/themes/new-school'),
     },
 
     devtool: "source-map",
@@ -76,7 +76,7 @@ module.exports = {
                 generator: {
                     filename: (normalModule) => {
                         let filePath = normalModule.module.resourceResolveData.relativePath;
-                        filePath = filePath.replace('./wp-content/themes/usb-travel/', '');
+                        filePath = filePath.replace('./wp-content/themes/new-school/', '');
                         return filePath;
                     },
                     emit: false,

@@ -1,0 +1,83 @@
+@import "~frontend-scss-mixins/mixins";
+@import "~glightbox/dist/css/glightbox.min.css";
+@import "./mixins";
+@import "./variables";
+@import "./media-queries";
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+@font-face {
+  font-family: Calibri;
+  font-weight: 400;
+  src: url(../../../../font/calibri-regular.ttf);
+}
+
+@font-face {
+  font-family: Calibri;
+  font-weight: 700;
+  src: url(../../../../font/calibri-bold.ttf);
+}
+
+
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --green-color: #4fb03d;
+  --magenta-color: #542ab9;
+  --blue-color: #2331b5;
+  --font-calibri: 'Calibri', sans-serif;
+  --font-manrope: 'Manrope', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: none;
+  margin: 0;
+  background: var(--white-color);
+  color: var(--black-color);
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ul {
+  list-style: none;
+  display: block;
+}
+
+button, input, textarea {
+  border: none;
+  background: none;
+  display: block;
+}
+
+button:active, input:active, textarea:active,
+button:focus, input:focus, textarea:focus {
+  outline: none;
+}

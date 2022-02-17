@@ -1,0 +1,105 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+
+.img-block {
+  position: relative;
+
+  &__background-wrapper {
+    position: absolute;
+    @include absolute-fill;
+
+    &:after {
+      @include pseudo-absolute;
+      @include absolute-fill;
+      @include gradient-magenta(-75);
+      mix-blend-mode: overlay;
+    }
+  }
+
+  &__background {
+    @include absolute-fill;
+    object-fit: cover;
+
+
+  }
+
+  &__block {
+    position: relative;
+    z-index: 1;
+    padding-top: 5.4vw;
+    height: 53.3vw;
+  }
+
+  &__title-wrapper {
+    color: var(--white-color);
+    @include font-manrope;
+  }
+
+  &__title {
+    font-size: 7.8vw;
+    line-height: 5.5vw;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 3.92vw;
+  }
+
+  &__button {
+    @include flex-row-center;
+    @include font-manrope;
+    background: var(--green-color);
+    color: var(--white-color);
+    position: absolute;
+    bottom: -3.23vw;
+    right: -0.78vw;
+    font-size: 2.76vw;
+    padding: 3.02vw 7.81vw;
+  }
+
+  &__geometry {
+  }
+
+  &__geometry-elem {
+    background: var(--white-color);
+    position: absolute;
+    opacity: .5;
+
+
+    &--1 {
+      width: 13vw;
+      height: 10vw;
+      left: 55vw;
+      top: 11vw;
+      mask: url(../../../../images/triangle.svg);
+      -webkit-mask: url(../../../../images/triangle.svg);
+      @include mask-contain-center();
+      transform: rotate(-18deg);
+    }
+
+    &--2 {
+      width: 9vw;
+      height: 9vw;
+      left: 74vw;
+      top: 25vw;
+      mask: url(../../../../images/plus.svg);
+      -webkit-mask: url(../../../../images/plus.svg);
+      @include mask-contain-center();
+      transform: rotate(-13deg);
+    }
+
+    &--3 {
+      width: 7vw;
+      height: 7vw;
+      left: 51vw;
+      top: 32vw;
+      mask: url(../../../../images/square.svg);
+      -webkit-mask: url(../../../../images/square.svg);
+      @include mask-contain-center();
+      transform: rotate(17deg);
+    }
+  }
+}
