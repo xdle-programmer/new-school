@@ -33841,6 +33841,101 @@ function initInputMask($input) {
 
 /***/ }),
 
+/***/ "./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.js":
+/*!***********************************************************************************!*\
+  !*** ./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.js ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "axios": function() { return /* binding */ axios; },
+/* harmony export */   "parentAuth": function() { return /* binding */ parentAuth; }
+/* harmony export */ });
+const axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+const $parentAuth = document.querySelector('.parent-auth');
+
+if ($parentAuth) {
+  parentAuth($parentAuth);
+}
+
+function parentAuth($wrapper) {
+  const classPrefix = 'parent-auth';
+  const dataPrefix = 'data-parent-auth';
+  const $numberInput = $wrapper.querySelector(`[${dataPrefix}-number]`);
+  const $getCodeButton = $wrapper.querySelector(`[${dataPrefix}-get-code]`);
+  const $codeInput = $wrapper.querySelector(`[${dataPrefix}-code]`);
+  const $sendCodeButton = $wrapper.querySelector(`[${dataPrefix}-send-code]`);
+  let userId;
+  init();
+
+  function init() {
+    addListeners();
+  }
+
+  function addListeners() {
+    $getCodeButton.addEventListener('click', () => {
+      const url = '/wp-admin/admin-ajax.php';
+      const data = new URLSearchParams();
+      data.append('action', 'ajax_parent_auth');
+      data.append('data', $numberInput.value);
+      const options = {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: data,
+        url
+      };
+      axios(options).then(response => {
+        userId = response.data.data[0];
+        console.log(response);
+      }).catch(error => {
+        console.error(error);
+        alert(error);
+      });
+    });
+    $sendCodeButton.addEventListener('click', () => {
+      const url = '/wp-admin/admin-ajax.php';
+      const data = new URLSearchParams();
+      data.append('action', 'ajax_check_pass');
+      data.append('data', JSON.stringify({
+        password: $codeInput.value,
+        userId
+      }));
+      const options = {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: data,
+        url
+      };
+      axios(options).then(response => {
+        console.log(response); // if (!response.data.success) {
+        //     console.log(response.data);
+        //
+        //     let error = '';
+        //
+        //     for (let message of response.data.data) {
+        //         error += ` ${message.message} `;
+        //     }
+        //
+        //     alert(error);
+        // } else {
+        //     window.location.reload();
+        // }
+      }).catch(error => {
+        console.error(error);
+        alert(error);
+      });
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./wp-content/themes/new-school/src/markup/blocks/placeholder/placeholder.js":
 /*!***********************************************************************************!*\
   !*** ./wp-content/themes/new-school/src/markup/blocks/placeholder/placeholder.js ***!
@@ -34247,6 +34342,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************!*\
   !*** ./wp-content/themes/new-school/src/markup/blocks/menu/menu.scss ***!
   \***********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.scss":
+/*!*************************************************************************************!*\
+  !*** ./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.scss ***!
+  \*************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34714,6 +34822,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/header/header.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/input-mask/input-mask.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/menu/menu.js");
+/******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/placeholder/placeholder.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/slider/slider.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/trip-search/trip-search.js");
@@ -34734,6 +34843,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/input/input.scss");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/layout/layout.scss");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/menu/menu.scss");
+/******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/parent-auth/parent-auth.scss");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/placeholder/placeholder.scss");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/slider/slider.scss");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/text-block/text-block.scss");

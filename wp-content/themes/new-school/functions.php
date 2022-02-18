@@ -225,3 +225,60 @@ add_action('wp_enqueue_scripts', 'loadFrontStyles');
 add_action('wp_enqueue_scripts', 'loadFrontScripts');
 
 add_action('admin_enqueue_scripts', 'loadAdminStyles');
+
+add_action('wp_ajax_ajax_parent_auth', 'ajax_parent_auth');
+add_action('wp_ajax_ajax_check_pass', 'ajax_check_pass');
+
+function ajax_parent_auth()
+{
+
+    // Получаем номер из запроса
+    $number = $_REQUEST['data'];
+
+    // Создаем случайный пароль
+    $password = rand(1000, 9999);
+
+    // Проверяем, есть ли юзер с таким номером
+    $user = get_user_by('slug', $number);
+
+
+    if (!$user) {
+        $userId = wp_insert_user([
+            'user_login' => $number,
+        ]);
+    } else {
+        $userId = $user->ID;
+    }
+
+    wp_set_password($password, $userId);
+
+    wp_send_json_success([$userId, $password]);
+
+    // Высылаем пароль по смс
+
+    wp_die();
+
+
+}
+
+function ajax_check_pass()
+{
+    $data = json_decode(stripcslashes($_REQUEST['data']), true);
+
+    $userId = $data['userId'];
+    $password = $data['password'];
+
+    $user = get_user_by('ID', $userId);
+    $hash = $user->data->user_pass;
+
+    if (wp_check_password($password, $hash))
+        wp_send_json_success(11111111111);
+    else
+        wp_send_json_error(
+            new WP_Error('-1', '')
+        );
+
+    wp_die();
+
+}
+
