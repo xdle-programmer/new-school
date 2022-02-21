@@ -4,6 +4,6 @@
 @import "../base/media-queries";
 
 .layout {
-  width: calc(100% - 10.42vw);
+  width: 1200px;
   @include margin-auto;
 }

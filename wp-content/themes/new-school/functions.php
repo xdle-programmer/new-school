@@ -12,7 +12,6 @@ if (!defined('_S_VERSION')) {
     define('_S_VERSION', '1.0.0');
 }
 
-
 function render_blocks()
 {
 
@@ -226,6 +225,12 @@ add_action('wp_enqueue_scripts', 'loadFrontScripts');
 
 add_action('admin_enqueue_scripts', 'loadAdminStyles');
 
+
+/**
+ * Аякс запросы.
+ * Запросы для регистрации и проверки кода и телефона
+ */
+
 add_action('wp_ajax_ajax_parent_auth', 'ajax_parent_auth');
 add_action('wp_ajax_ajax_check_pass', 'ajax_check_pass');
 
@@ -282,3 +287,52 @@ function ajax_check_pass()
 
 }
 
+/**
+ * Вопросы анкеты
+ */
+
+add_action('init', 'register_question_post_type');
+
+function register_question_post_type()
+{
+	$labels = array(
+		'name' => _x('Вопросы в анкете', 'post type general name'),
+		'singular_name' => _x('Вопрос в анкете', 'post type singular name'),
+		'add_new' => 'Добавить вопрос в анкете'
+	);
+
+	// Set various pieces of information about the post type
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Вопросы в анкете',
+		'public' => true,
+		'menu_icon' => 'dashicons-editor-help'
+	);
+
+	register_post_type('question', $args);
+}
+
+/**
+ * Вопросы анкеты
+ */
+
+add_action('init', 'register_answers_post_type');
+
+function register_answers_post_type()
+{
+	$labels = array(
+		'name' => _x('Ответы на анкету', 'post type general name'),
+		'singular_name' => _x('Ответ на анкету', 'post type singular name'),
+		'add_new' => 'Добавить ответ на анкету'
+	);
+
+	// Set various pieces of information about the post type
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Ответы на анкету',
+		'public' => true,
+		'menu_icon' => 'dashicons-editor-spellcheck'
+	);
+
+	register_post_type('answers', $args);
+}

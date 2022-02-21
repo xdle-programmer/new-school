@@ -4,7 +4,7 @@
 @import "../base/media-queries";
 
 .footer {
-  height: 80px;
+  height: 40px;
   background: var(--blue-color);
   color: var(--white-color);
   position: relative;
@@ -13,5 +13,27 @@
     @include pseudo-absolute;
     @include absolute-fill;
     background: linear-gradient(-90deg, rgba(84, 42, 185, 0) 0%, rgba(84, 42, 185, 1) 100%);
+  }
+
+  &__block {
+    @include flex-row;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__item {
+    color: var(--white-color);
+    @include font-calibri;
+    font-size: 22px;
+  }
+
+  &__name {
+  }
+
+  &__link {
+    text-decoration: underline;
   }
 }

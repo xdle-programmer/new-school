@@ -16,6 +16,7 @@
 
   &__item-img-wrapper {
     flex-grow: 1;
+    height: 0;
   }
 
   &__item-img {
@@ -27,11 +28,13 @@
 
   &__desc {
     background: var(--blue-color);
-    width: 68.5vw;
-    padding: 4.5vw 8vw;
-    padding-right: 5vw;
+    width: 910px;
+    padding: 60px 100px;
     color: var(--white-color);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &:after {
       @include pseudo-absolute;
@@ -42,17 +45,17 @@
 
   &__desc-title {
     @include font-manrope;
-    font-size: 3.55vw;
+    font-size: 46px;
     font-weight: 700;
-    margin-bottom: 1.3vw;
+    margin-bottom: 25px;
     position: relative;
     z-index: 1;
   }
 
   &__desc-text {
     @include font-calibri;
-    font-size: 2.5vw;
-    line-height: 2.9vw;
+    font-size: 32px;
+    line-height: 38px;
     position: relative;
     z-index: 1;
   }

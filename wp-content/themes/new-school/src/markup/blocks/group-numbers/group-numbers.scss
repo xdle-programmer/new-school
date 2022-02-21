@@ -5,10 +5,10 @@
 
 
 .group-numbers {
-  padding-top: 1vw;
+  padding-top: 80px;
 
   &__title {
-    margin-bottom: 2.8vw;
+    margin-bottom: 50px;
   }
 
   &__items {
@@ -58,19 +58,19 @@
   }
 
   &__item {
-    box-shadow: 0 0 28px -4px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 13px -4px rgba(0, 0, 0, .3);
     text-align: center;
-    padding: 3vw 1vw;
+    padding: 15px;
   }
 
   &__item-number {
     @include font-manrope;
-    font-size: 5vw;
+    font-size: 70px;
     font-weight: 700;
   }
 
   &__item-text {
     @include font-calibri;
-    font-size: 2vw;
+    font-size: 25px;
   }
 }
