@@ -8,4 +8,16 @@
   font-weight: 700;
   color: var(--blue-color);
   font-size: 46px;
+
+  @include tablet-big-screen {
+    font-size: 28px;
+  }
+
+  &--small {
+    font-size: 30px;
+
+    @include tablet-big-screen {
+      font-size: 22px;
+    }
+  }
 }

@@ -1,0 +1,273 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.questionnaire {
+  font-family: var(--font-calibri);
+
+  &__item {
+    padding: 40px 0;
+    padding-bottom: 20px;
+  }
+
+  &__hidden {
+    //display: none !important;
+  }
+
+  &__item-title {
+    margin-bottom: 10px;
+  }
+
+
+  &__item-text {
+    margin-bottom: 10px;
+    font-size: 22px;
+
+    @include tablet-big-screen {
+      font-size: 16px;
+    }
+  }
+
+  &__item-questions {
+  }
+
+  &__item-inner {
+    background: #f0f0f0;
+    padding: 25px;
+
+    @include tablet-big-screen {
+      padding: 10px;
+    }
+  }
+
+  &__input-button-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-gap: 20px;
+    align-items: center;
+
+    @include tablet-big-screen {
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+    }
+  }
+
+  &__input-button-block-title {
+    font-size: 20px;
+  }
+
+  &__input-button-block-input {
+  }
+
+  &__input-button-block-button {
+
+  }
+
+  &__button {
+    font-size: 20px;
+    width: 100%;
+    @include flex-row-center;
+    height: 46px;
+    background: var(--green-color);
+    color: var(--white-color);
+    padding: 0 70px;
+    cursor: pointer;
+
+    @include tablet-big-screen {
+      padding: 4px 25px;
+      min-height: 35px;
+      text-align: center;
+      height: auto;
+    }
+
+    &--fill {
+      width: fit-content;
+    }
+
+    &--disabled,
+    &.form-check__button--disabled {
+      background: #a8a8a8;
+    }
+  }
+
+  &__item-inner-result {
+    font-size: 20px;
+    padding: 25px;
+    font-weight: 500;
+    @include flex-row-center;
+    text-align: center;
+    color: #ff0000;
+  }
+
+  &__item-inner-desc {
+    font-size: 20px;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  &__item-inner-desc-inner {
+    display: inline;
+
+    &--link {
+      color: var(--blue-color);
+      border-bottom: 1px solid var(--blue-color);
+      cursor: pointer;
+    }
+  }
+
+  &__input-title-block {
+  }
+
+  &__input-title-block-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 25px;
+    align-items: flex-start;
+
+    @include tablet-big-screen {
+      grid-template-columns: 1fr;
+      grid-gap: 4px;
+    }
+  }
+
+  &__input-title-block-item-title {
+    min-height: 46px;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+
+    @include tablet-big-screen {
+      min-height: auto;
+      font-size: 18px;
+    }
+  }
+
+  &__input-title-block-item-input {
+  }
+
+  &__input-title-block-item-desc {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+
+  &__check-box-block {
+    margin-bottom: 25px;
+
+    @include tablet-big-screen {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button-center-wrapper {
+    @include flex-row-center;
+  }
+
+  &__item-question {
+    background: #f0f0f0;
+    padding: 25px;
+
+    @include tablet-big-screen {
+      padding: 10px;
+    }
+  }
+
+  &__item-question-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 5px;
+
+    @include tablet-big-screen {
+      font-size: 18px;
+      text-align: left;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-question-subtitle {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+
+    @include tablet-big-screen {
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+
+  &__check-box-text-block {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    grid-gap: 10px;
+  }
+
+  &__item-buttons {
+    @include flex-row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__about {
+    background: #f0f0f0;
+    padding: 25px;
+  }
+
+  &__about-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__about-question {
+    margin-bottom: 20px;
+  }
+
+  &__about-question-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  &__about-question-item {
+  }
+
+  &__about-question-item-inner {
+    display: grid;
+    grid-template-columns: 245px 200px;
+    grid-gap: 10px;
+    margin-bottom: 13px;
+    align-items: center;
+
+    @include tablet-big-screen {
+      grid-template-columns: 1fr;
+      grid-gap: 5px;
+      margin-bottom: 18px;
+    }
+  }
+
+  &__about-button {
+    @include margin-auto;
+  }
+
+  &__result {
+    background: #f0f0f0;
+    padding: 125px;
+    @include flex-column-center;
+
+    @include tablet-big-screen {
+      padding: 10px;
+    }
+  }
+
+  &__result-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  &__result-button {
+
+  }
+
+}

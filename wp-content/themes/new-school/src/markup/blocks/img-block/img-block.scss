@@ -28,8 +28,6 @@
   &__background {
     @include absolute-fill;
     object-fit: cover;
-
-
   }
 
   &__block {
@@ -37,6 +35,10 @@
     z-index: 1;
     padding-top: 84px;
     height: calc(100vh - 150px);
+
+    #{$small} & {
+      padding-top: 15px;
+    }
   }
 
   &__title-wrapper {
@@ -49,11 +51,21 @@
     line-height: 82px;
     font-weight: 700;
     filter: drop-shadow(3px 2px rgba(0, 0, 0, 0.5));
+
+    @include tablet-big-screen {
+      font-size: 50px;
+      line-height: 1em;
+    }
   }
 
   &__subtitle {
     font-size: 51px;
     filter: drop-shadow(3px 2px rgba(0, 0, 0, 0.5));
+
+    @include tablet-big-screen {
+      font-size: 30px;
+      line-height: 1em;
+    }
   }
 
   &__button {
@@ -68,23 +80,36 @@
     padding: 35px 121px;
     transform: translateY(50%);
 
+    @include tablet-big-screen {
+      padding: 10px 20px;
+      font-size: 18px;
+      right: 0;
+    }
+
     #{$small} & {
       position: static;
       font-size: 38px;
       padding: 10px 54px;
       width: fit-content;
       margin-top: 76px;
+
+      @include tablet-big-screen {
+        padding: 10px 20px;
+        font-size: 18px;
+      }
     }
   }
 
   &__geometry {
+    @include tablet-big-screen {
+      display: none;
+    }
   }
 
   &__geometry-elem {
     background: var(--white-color);
     position: absolute;
     opacity: .5;
-
 
     &--1 {
       width: 172px;

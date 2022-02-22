@@ -7,8 +7,17 @@
   padding-top: 120px;
   padding-bottom: 60px;
 
+  @include tablet-big-screen {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
   &__title {
     margin-bottom: 25px;
+
+    @include tablet-big-screen {
+      margin-bottom: 10px;
+    }
   }
 
   &__items {
@@ -18,6 +27,10 @@
     @include font-calibri;
     margin-bottom: 15px;
     font-size: 28px;
+
+    @include tablet-big-screen {
+      font-size: 18px;
+    }
   }
 
 }

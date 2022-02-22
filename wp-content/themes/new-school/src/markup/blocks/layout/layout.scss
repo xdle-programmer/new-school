@@ -6,4 +6,20 @@
 .layout {
   width: 1200px;
   @include margin-auto;
+
+  @include tablet-big-screen {
+    width: calc(100% - 20px);
+  }
+
+  &--small {
+    width: 900px;
+
+    @include tablet-big-screen {
+      width: calc(100% - 20px);
+    }
+  }
+}
+
+.content {
+  min-height: calc(100vh - 90px);
 }

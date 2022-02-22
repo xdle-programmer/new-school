@@ -4,79 +4,85 @@
 @import "../base/media-queries";
 
 .form-check {
+  position: relative;
+
+  &--disabled:after {
+    @include pseudo-absolute;
+    @include absolute-fill;
+    background: transparent;
+    z-index: 100;
+  }
+
+
+  &__field {
     position: relative;
 
-    &--disabled:after {
-        @include pseudo-absolute;
-        @include absolute-fill;
-        background: transparent;
-        z-index: 100;
+    &--error {
+      border: 1px solid #ff0000;
+    }
+  }
+
+  $auth: '.auth__form-wrapper';
+  $error: '.form-check__error--show';
+  $error-focus: '.form-check__error--show.form-check__field--focus';
+  $small-field: '.form-check__field--small';
+  $textarea: '.placeholder--textarea';
+  $checkbox: '.questionnaire__check-box-block';
+
+  &__error {
+    color: var(--error-color);
+    cursor: text;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    padding-left: 0;
+    height: auto;
+    transition: transform 0.2s, opacity 0s;
+    transform-origin: left bottom;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-22px) scale(.75);
+    pointer-events: none;
+
+    #{$checkbox} & {
+      top: 0;
+      left: 0;
+    }
+
+    #{$textarea} & {
+      top: 25px;
+    }
+
+    #{$auth} & {
+      transform: translateY(-20px);
+      font-size: 13px;
+      left: 20px;
+    }
+
+    #{$error} & {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #{$small-field}#{$error} & {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #{$error-focus} & {
+      opacity: 0;
+      visibility: hidden;
     }
 
 
-    &__field {
-        position: relative;
+  }
 
-        &--error {
-            border: 1px solid #ff0000;
-        }
+  &__button {
+
+    &--disabled {
     }
 
-    $auth: '.auth__form-wrapper';
-    $error: '.form-check__error--show';
-    $error-focus: '.form-check__error--show.form-check__field--focus';
-    $small-field: '.form-check__field--small';
-    $textarea: '.placeholder--textarea';
-
-    &__error {
-        color: var(--error-color);
-        cursor: text;
-        font-size: 16px;
-        position: absolute;
-        top: 50%;
-        left: 12px;
-        padding-left: 0;
-        height: auto;
-        transition: transform 0.2s, opacity 0s;
-        transform-origin: left bottom;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-22px) scale(.75);
-        pointer-events: none;
-
-        #{$textarea} & {
-            top: 25px;
-        }
-
-        #{$auth} & {
-            transform: translateY(-20px);
-            font-size: 13px;
-            left: 20px;
-        }
-
-        #{$error} & {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #{$small-field}#{$error} & {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        #{$error-focus} & {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-
-    }
-
-    &__button {
-
-        &--disabled {
-        }
-
-    }
+  }
 }

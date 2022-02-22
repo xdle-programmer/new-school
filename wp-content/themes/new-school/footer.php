@@ -25,6 +25,8 @@ if ( $currentLink != '/' ) {
 
 ?>
 
+</div>
+
 <footer class="footer">
     <div class="footer__block layout">
         <a href="/" class="footer__item footer__name"><?= get_bloginfo() ?></a>

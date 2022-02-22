@@ -1,4 +1,4 @@
-const { setId } = require('../set-id/set-id');
+const {setId} = require('../set-id/set-id');
 
 export class Validation {
 
@@ -100,6 +100,14 @@ export class Validation {
                     checkEvents: ['change'],
                     errorMessage: 'Выберите значение',
                     functionCheck: this.validateSelect.bind(this),
+                }
+            ],
+            [
+                'checkbox-not-check',
+                {
+                    checkEvents: ['change'],
+                    errorMessage: 'Поставьте галочку',
+                    functionCheck: this.validateCheckbox.bind(this),
                 }
             ],
         ]);
@@ -381,6 +389,19 @@ export class Validation {
         };
     }
 
+    // Проверка чекбокса
+    validateCheckbox($field, $elem, errorMessage) {
+        let validate = $elem.checked == true;
+        let message = errorMessage;
+        let priority = 200;
+
+        return {
+            validate: validate,
+            message: message,
+            priority: priority
+        };
+    }
+
     // Метод обновления формы
     refresh() {
         this.handleAllListeners(false);
@@ -397,7 +418,7 @@ if (forms.length > 0) {
         let $form = forms[index];
         let id = setId($form);
 
-        window.formsArray.set(id, new Validation({ $form: $form }));
+        window.formsArray.set(id, new Validation({$form: $form}));
         window.formsArray.get(id)
             .init();
     }

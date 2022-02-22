@@ -18,9 +18,10 @@
     font-size: 16px;
     padding-left: 12px;
     padding-right: 12px;
-    border-radius: 4px;
+    border-radius: 0;
     color: var(--black-color);
     transition: none !important;
+    font-family: var(--font-calibri);
 
     #{$not-empty} & {
         padding-top: 14px;
@@ -65,6 +66,11 @@
         #{$error} & {
             padding-top: 24px;
         }
+    }
+
+    &--blue-border {
+        font-size: 20px;
+        border: 2px solid var(--blue-color);
     }
 
     &--driver-comment {

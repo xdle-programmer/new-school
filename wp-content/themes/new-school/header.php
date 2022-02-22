@@ -45,3 +45,5 @@ if ( $currentLink != '/' ) {
         <a href="<?= $link ?>" class="header__item header__link"><?= $name ?></a>
     </div>
 </header>
+
+<div class="content">

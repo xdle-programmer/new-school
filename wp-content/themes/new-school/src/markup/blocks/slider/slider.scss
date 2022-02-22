@@ -12,6 +12,10 @@
 
   &__item-inner {
     display: flex;
+
+    @include tablet-big-screen {
+      display: block;
+    }
   }
 
   &__item-img-wrapper {
@@ -41,6 +45,11 @@
       @include absolute-fill;
       background: linear-gradient(-90deg, rgba(84, 42, 185, 0) 0%, rgba(84, 42, 185, 1) 100%);
     }
+
+    @include tablet-big-screen {
+      width: 100%;
+      padding: 20px;
+    }
   }
 
   &__desc-title {
@@ -50,6 +59,11 @@
     margin-bottom: 25px;
     position: relative;
     z-index: 1;
+
+    @include tablet-big-screen {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
   }
 
   &__desc-text {
@@ -58,5 +72,10 @@
     line-height: 38px;
     position: relative;
     z-index: 1;
+
+    @include tablet-big-screen {
+      font-size: 18px;
+      line-height: 1em;
+    }
   }
 }

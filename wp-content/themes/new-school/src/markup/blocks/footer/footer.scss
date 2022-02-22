@@ -9,6 +9,10 @@
   color: var(--white-color);
   position: relative;
 
+  @include tablet-big-screen {
+    height: 30px;
+  }
+
   &:after {
     @include pseudo-absolute;
     @include absolute-fill;
@@ -28,6 +32,10 @@
     color: var(--white-color);
     @include font-calibri;
     font-size: 22px;
+
+    @include tablet-big-screen {
+      font-size: 18px;
+    }
   }
 
   &__name {
@@ -35,5 +43,9 @@
 
   &__link {
     text-decoration: underline;
+
+    @include tablet-big-screen {
+      display: none;
+    }
   }
 }
