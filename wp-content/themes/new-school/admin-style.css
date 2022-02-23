@@ -1,3 +1,73 @@
 body {
 
 }
+
+.answers-toggle {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #4fb03d;
+    color: white;
+    font-size: 14px;
+    padding: 7px 40px;
+    width: fit-content;
+}
+
+.answers {
+    font-size: 14px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.respondents {
+    font-size: 14px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.respondents th,
+.answers th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.respondents td,
+.answers td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.answers th,
+.answers td {
+    width: 75px;
+    min-width: 0;
+    text-align: center;
+}
+
+.respondents th,
+.respondents td {
+    width: 175px;
+    min-width: 0;
+    text-align: center;
+}
+
+.answers th {
+    text-align: left;
+}
+
+.answers td:nth-of-type(1) {
+    width: 500px;
+    text-align: left;
+}
+
+.answers__user {
+    background: #e1e1e1;
+}
+
+.answers--short .answers__user {
+    display: none;
+}

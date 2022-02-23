@@ -51,3 +51,10 @@ export function monthCalc(date, monthCount) {
         .subtract(1, 'day')
         .format(dbDateFormat)));
 }
+
+
+if (document.querySelector('.answers-toggle')) {
+    document.querySelector('.answers-toggle').addEventListener('click',()=>{
+        document.querySelector('.answers').classList.toggle('answers--short')
+    })
+}

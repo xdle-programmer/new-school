@@ -221,6 +221,7 @@ add_action( 'admin_enqueue_scripts', 'loadAdminStyles' );
 add_action( 'wp_ajax_ajax_parent_auth', 'ajax_parent_auth' );
 add_action( 'wp_ajax_ajax_check_pass', 'ajax_check_pass' );
 add_action( 'wp_ajax_ajax_check_parent_code', 'ajax_check_parent_code' );
+add_action( 'wp_ajax_ajax_get_answers', 'ajax_get_answers' );
 
 function ajax_parent_auth() {
 
@@ -321,6 +322,29 @@ function ajax_check_parent_code() {
 		}
 
 	}
+
+	wp_die();
+}
+
+function ajax_get_answers() {
+	$data = json_decode( stripcslashes( $_REQUEST['data'] ), true );
+
+//	wp_send_json_success(  $data['answers'] );
+
+	$answerPost = array(
+		'post_title'   => 'Ответ на анкету',
+		'post_content' => json_encode( $data['answers'], JSON_UNESCAPED_UNICODE ),
+		'post_status'  => 'publish',
+		'post_type'    => 'answers',
+		'post_author'  => $data['userId']
+	);
+
+	// добавляем пост и получаем его ID
+	$newPostId = wp_insert_post( $answerPost );
+
+	update_user_meta( $data['userId'], 'about', json_encode( $data['about'], JSON_UNESCAPED_UNICODE ) );
+
+	wp_send_json_success( json_encode( $data['answers'] ) );
 
 	wp_die();
 }
@@ -469,9 +493,10 @@ function remove_menu_pages_for_editors() {
  * Настройки админки.
  * Управляем настройками меню, добавляем стили
  */
-function wpse_custom_menu_order($menu_ord)
-{
-	if (!$menu_ord) return true;
+function wpse_custom_menu_order( $menu_ord ) {
+	if ( ! $menu_ord ) {
+		return true;
+	}
 
 	return array(
 		'edit.php?post_type=page', // Страницы
@@ -486,21 +511,19 @@ function wpse_custom_menu_order($menu_ord)
 	);
 }
 
-add_filter('custom_menu_order', 'wpse_custom_menu_order', 10, 1);
+add_filter( 'custom_menu_order', 'wpse_custom_menu_order', 10, 1 );
 
-add_filter('menu_order', 'wpse_custom_menu_order', 10, 1);
+add_filter( 'menu_order', 'wpse_custom_menu_order', 10, 1 );
 
-function admin_styles()
-{
-	wp_register_style('admin-styles', get_stylesheet_directory_uri() . '/admin/style.css');
-	wp_enqueue_style('admin-styles');
+function admin_styles() {
+	wp_register_style( 'admin-styles', get_stylesheet_directory_uri() . '/admin/style.css' );
+	wp_enqueue_style( 'admin-styles' );
 }
 
-function admin_scripts()
-{
+function admin_scripts() {
 //	wp_register_style('admin-styles', get_stylesheet_directory_uri() . '/admin/style.css');
 //	wp_enqueue_style('admin-styles');
 	wp_enqueue_script( 'script', get_template_directory_uri() . '/scripts.js', null, null, true );
 }
 
-add_action('admin_enqueue_scripts', 'admin_scripts');
+add_action( 'admin_enqueue_scripts', 'admin_scripts' );

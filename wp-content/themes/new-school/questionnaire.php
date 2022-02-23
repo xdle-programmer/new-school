@@ -25,7 +25,7 @@ get_header();
                     перигей.
                 </div>
 
-                <div class="questionnaire__item-questions" data-questionnaire-items>
+                <div class="questionnaire__item-questions questionnaire__hidden" data-questionnaire-items>
 
 					<?php
 
@@ -106,16 +106,13 @@ get_header();
 
 						?>
 
-                        <div class="questionnaire__item-question" data-questionnaire-item data-questionnaire-item-max="<?= $question['max']; ?>">
+                        <div class="questionnaire__item-question <?= $questionsCounter !== 1 ? 'questionnaire__hidden' : '' ?>" data-questionnaire-item
+                             data-questionnaire-item-max="<?= $question['max']; ?>">
 
                             <div class="questionnaire__item-question-title">
-								<?php
-								echo $questionsCounter;
-								echo '/';
-								echo $questionsCount;
-								echo '. ';
-								echo $question['title'];
-								?>
+                                <div class="questionnaire__item-question-title-inner"><?= $questionsCounter . '/' . $questionsCount . '. '; ?></div>
+                                <div class="questionnaire__item-question-title-inner" data-questionnaire-item-title><?= $question['title']; ?></div>
+
                             </div>
                             <div class="questionnaire__item-question-subtitle">(можно выбрать вариантов ответов: <?= $question['max']; ?>)</div>
 
@@ -139,7 +136,7 @@ get_header();
 
                             <div class="questionnaire__check-box-text-block">
                                 <label class="checkbox">
-                                    <input class="checkbox__input" type="checkbox">
+                                    <input class="checkbox__input" type="checkbox" data-questionnaire-own-answer>
                                     <span class="checkbox__item">
                                             <span class="checkbox__icon"></span>
                                             <span class="checkbox__text">
@@ -147,7 +144,7 @@ get_header();
                                         </span>
                                 </label>
                                 <div class="placeholder placeholder--textarea">
-                                    <textarea class="input input--textarea input--blue-border placeholder__input" placeholder="Ваш вариант ответа"></textarea>
+                                    <textarea disabled class="input input--textarea input--blue-border placeholder__input" placeholder="Ваш вариант ответа"></textarea>
                                     <div class="placeholder__item">Ваш вариант ответа</div>
                                 </div>
                             </div>
@@ -159,9 +156,13 @@ get_header();
 								} else {
 									echo '<div></div>';
 								}
+
+								$questionsCounter ++;
 								?>
 
-                                <div class="questionnaire__item-button questionnaire__button questionnaire__button--fill" data-questionnaire-item-button-next>Далее</div>
+                                <div class="questionnaire__item-button questionnaire__button questionnaire__button--disabled questionnaire__button--fill"
+                                     data-questionnaire-item-button-next>Далее
+                                </div>
                             </div>
                         </div>
 
@@ -171,10 +172,10 @@ get_header();
 					endforeach;
 					?>
 
-                    <div class="questionnaire__about" data-questionnaire-about>
+                    <div class="questionnaire__about questionnaire__hidden" data-questionnaire-about>
                         <div class="questionnaire__about-title">Расскажите о себе</div>
 
-                        <div class="questionnaire__about-question">
+                        <div class="questionnaire__about-question" data-questionnaire-about-question-wrapper>
                             <div class="questionnaire__about-question-title">В каком классе сейчас учится Ваш ребенок/дети (посещает детский сад)?</div>
 
                             <div class="questionnaire__about-question-item">
@@ -196,7 +197,7 @@ get_header();
                                         </span>
                                     </label>
                                     <div class="placeholder">
-                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс">
+                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс" disabled>
                                         <div class="placeholder__item">Укажите класс</div>
                                     </div>
                                 </div>
@@ -209,7 +210,7 @@ get_header();
                                         </span>
                                     </label>
                                     <div class="placeholder">
-                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс">
+                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс" disabled>
                                         <div class="placeholder__item">Укажите класс</div>
                                     </div>
                                 </div>
@@ -222,14 +223,14 @@ get_header();
                                         </span>
                                     </label>
                                     <div class="placeholder">
-                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс">
+                                        <input class="input input--blue-border placeholder__input" placeholder="Укажите класс" disabled>
                                         <div class="placeholder__item">Укажите класс</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="questionnaire__about-question">
+                        <div class="questionnaire__about-question" data-questionnaire-about-question-wrapper>
                             <div class="questionnaire__about-question-title">Ваш возраст:</div>
 
                             <div class="questionnaire__about-question-item">
@@ -263,7 +264,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="questionnaire__about-question">
+                        <div class="questionnaire__about-question" data-questionnaire-about-question-wrapper>
                             <div class="questionnaire__about-question-title">Ваше образование:</div>
 
                             <div class="questionnaire__about-question-item">
@@ -306,17 +307,17 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="questionnaire__about-button questionnaire__button questionnaire__button--fill">Отправить</div>
+                        <div class="questionnaire__about-button questionnaire__button questionnaire__button--disabled questionnaire__button--fill" data-questionnaire-send-result-button>Отправить</div>
                     </div>
                 </div>
 
-                <div class="questionnaire__result" data-questionnaire-result>
+                <div class="questionnaire__result questionnaire__hidden" data-questionnaire-result>
                     <div class="questionnaire__result-title">Благодарим за Ваши ответы!</div>
                     <a href="/" class="questionnaire__result-button questionnaire__button questionnaire__button--fill">Вернуться на сайт школы</a>
                 </div>
             </div>
 
-            <div class="questionnaire__item">
+            <div class="questionnaire__item" data-questionnaire-register>
                 <div class="questionnaire__item-title title title--small">
                     Регистрация
                 </div>
@@ -368,14 +369,14 @@ get_header();
                     </div>
                 </div>
 
-                <div class="questionnaire__item-inner form-check222 questionnaire__hidden" data-questionnaire-send-parent-code-screen data-questionnaire-auth-screen>
+                <div class="questionnaire__item-inner form-check questionnaire__hidden" data-questionnaire-send-parent-code-screen data-questionnaire-auth-screen>
 
                     <div class="questionnaire__input-title-block">
                         <div class="questionnaire__input-title-block-item">
                             <div class="questionnaire__input-title-block-item-title">Код родителя</div>
                             <div class="questionnaire__input-title-block-item-input">
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                                    <input class="input placeholder__input" placeholder="Код родителя" value="1111111"
+                                    <input class="input placeholder__input" placeholder="Код родителя"
                                            data-questionnaire-send-parent-code-input
                                     >
                                     <div class="placeholder__item">Код родителя</div>
@@ -391,7 +392,7 @@ get_header();
                             <div class="questionnaire__input-title-block-item-title">Имя</div>
                             <div class="questionnaire__input-title-block-item-input">
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                                    <input class="input placeholder__input" placeholder="Имя" value="2222222"
+                                    <input class="input placeholder__input" placeholder="Имя"
                                            data-questionnaire-send-parent-code-fname
                                     >
                                     <div class="placeholder__item">Имя</div>
@@ -403,7 +404,7 @@ get_header();
                             <div class="questionnaire__input-title-block-item-title">Отчество</div>
                             <div class="questionnaire__input-title-block-item-input">
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                                    <input class="input placeholder__input" placeholder="Отчество" value="3333333"
+                                    <input class="input placeholder__input" placeholder="Отчество"
                                            data-questionnaire-send-parent-code-mname
                                     >
                                     <div class="placeholder__item">Отчество</div>

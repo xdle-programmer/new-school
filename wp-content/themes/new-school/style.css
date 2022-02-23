@@ -999,6 +999,8 @@ button:focus, input:focus, textarea:focus {
   .questionnaire__item {
     padding: 40px 0;
     padding-bottom: 20px; }
+  .questionnaire__hidden {
+    display: none !important; }
   .questionnaire__item-title {
     margin-bottom: 10px; }
   .questionnaire__item-text {
@@ -1113,6 +1115,8 @@ button:focus, input:focus, textarea:focus {
         text-align: left;
         font-weight: 700;
         margin-bottom: 0; } }
+  .questionnaire__item-question-title-inner {
+    display: inline; }
   .questionnaire__item-question-subtitle {
     font-size: 20px;
     text-align: center;

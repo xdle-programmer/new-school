@@ -12,7 +12,7 @@
   }
 
   &__hidden {
-    //display: none !important;
+    display: none !important;
   }
 
   &__item-title {
@@ -183,6 +183,10 @@
       font-weight: 700;
       margin-bottom: 0;
     }
+  }
+
+  &__item-question-title-inner {
+    display: inline;
   }
 
   &__item-question-subtitle {
