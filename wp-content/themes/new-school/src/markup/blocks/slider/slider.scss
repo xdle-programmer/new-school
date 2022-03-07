@@ -54,9 +54,9 @@
 
   &__desc-title {
     @include font-manrope;
-    font-size: 46px;
+    font-size: 38px;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     position: relative;
     z-index: 1;
 
@@ -68,8 +68,8 @@
 
   &__desc-text {
     @include font-calibri;
-    font-size: 32px;
-    line-height: 38px;
+    font-size: 26px;
+    line-height: 32px;
     position: relative;
     z-index: 1;
 

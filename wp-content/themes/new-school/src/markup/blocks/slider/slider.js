@@ -1,5 +1,4 @@
 import {tns} from "tiny-slider";
-import {height} from "../../../../../../../wp-includes/js/codemirror/csslint";
 
 if (document.querySelector('.slider')) {
 

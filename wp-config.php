@@ -23,10 +23,12 @@
 define( 'DB_NAME', 'yuryustinov_nsch' );
 
 /** Имя пользователя базы данных */
-define( 'DB_USER', 'yuryustinov_nsch' );
+//define( 'DB_USER', 'yuryustinov_nsch' );
+define( 'DB_USER', 'root' );
 
 /** Пароль к базе данных */
-define( 'DB_PASSWORD', 'zP2474vz' );
+//define( 'DB_PASSWORD', 'zP2474vz' );
+define( 'DB_PASSWORD', '' );
 
 /** Имя сервера базы данных */
 define( 'DB_HOST', 'localhost' );

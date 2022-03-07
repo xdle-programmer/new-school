@@ -4,7 +4,7 @@
 @import "../base/media-queries";
 
 .text-block {
-  padding-top: 120px;
+  padding-top: 80px;
   padding-bottom: 60px;
 
   @include tablet-big-screen {
@@ -26,7 +26,8 @@
   &__item {
     @include font-calibri;
     margin-bottom: 15px;
-    font-size: 28px;
+    font-size: 24px;
+    text-align: justify;
 
     @include tablet-big-screen {
       font-size: 18px;

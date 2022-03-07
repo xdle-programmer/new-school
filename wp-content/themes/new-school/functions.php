@@ -218,10 +218,10 @@ add_action( 'admin_enqueue_scripts', 'loadAdminStyles' );
  * Запросы для регистрации и проверки кода и телефона
  */
 
-add_action( 'wp_ajax_ajax_parent_auth', 'ajax_parent_auth' );
-add_action( 'wp_ajax_ajax_check_pass', 'ajax_check_pass' );
-add_action( 'wp_ajax_ajax_check_parent_code', 'ajax_check_parent_code' );
-add_action( 'wp_ajax_ajax_get_answers', 'ajax_get_answers' );
+add_action( 'wp_ajax_nopriv_ajax_parent_auth', 'ajax_parent_auth' );
+add_action( 'wp_ajax_nopriv_ajax_check_pass', 'ajax_check_pass' );
+add_action( 'wp_ajax_nopriv_ajax_check_parent_code', 'ajax_check_parent_code' );
+add_action( 'wp_ajax_nopriv_ajax_get_answers', 'ajax_get_answers' );
 
 function ajax_parent_auth() {
 
