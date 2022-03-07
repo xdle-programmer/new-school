@@ -26,8 +26,8 @@ if (document.querySelector('.slider')) {
         container: '.slider',
         items: 1,
         mouseDrag: true,
-        arrowKeys: false,
-        controls:false,
+        arrowKeys: true,
+        controls:true,
         responsive: {
             // 640: {
             //     edgePadding: 20,

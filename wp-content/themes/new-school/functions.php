@@ -143,6 +143,7 @@ function render_group_numbers( $block ) {
 	echo '<div class="' . $class . '__title">';
 	render_title( $block['заголовок'] );
 	echo '</div>';
+	echo '</div>';
 
 	echo '<div class="' . $class . '__items ' . $class . '__items--' . $block['количество_блоков_в_линии'] . '">';
 
@@ -150,12 +151,12 @@ function render_group_numbers( $block ) {
 		$group = $item['блок_числа'];
 
 		echo '<div class="' . $class . '__item">';
+		echo '<div class="' . $class . '__item-inner">';
 		echo '<div class="' . $class . '__item-number">' . $group['число'] . '</div>';
 		echo '<div class="' . $class . '__item-text">' . $group['текст'] . '</div>';
 		echo '</div>';
+		echo '</div>';
 	}
-
-	echo '</div>';
 
 	echo '</div>';
 

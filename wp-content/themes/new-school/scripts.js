@@ -34148,6 +34148,40 @@ if (forms.length > 0) {
 
 /***/ }),
 
+/***/ "./wp-content/themes/new-school/src/markup/blocks/group-numbers/group-numbers.js":
+/*!***************************************************************************************!*\
+  !*** ./wp-content/themes/new-school/src/markup/blocks/group-numbers/group-numbers.js ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tiny_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tiny-slider */ "./node_modules/tiny-slider/dist/tiny-slider.js");
+
+
+if (document.querySelector('.group-numbers__items')) {
+  let slider = (0,tiny_slider__WEBPACK_IMPORTED_MODULE_0__.tns)({
+    container: '.group-numbers__items',
+    items: 2,
+    mouseDrag: true,
+    arrowKeys: true,
+    controls: true,
+    responsive: {
+      1280: {
+        items: 6
+      } // 700: {
+      //     gutter: 30
+      // },
+      // 900: {
+      //     items: 1
+      // }
+
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./wp-content/themes/new-school/src/markup/blocks/header/header.js":
 /*!*************************************************************************!*\
   !*** ./wp-content/themes/new-school/src/markup/blocks/header/header.js ***!
@@ -34806,8 +34840,8 @@ if (document.querySelector('.slider')) {
     container: '.slider',
     items: 1,
     mouseDrag: true,
-    arrowKeys: false,
-    controls: false,
+    arrowKeys: true,
+    controls: true,
     responsive: {// 640: {
       //     edgePadding: 20,
       //     gutter: 20,
@@ -35672,6 +35706,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/custom-select/custom-select.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/datepicker/datepicker.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/form-check/form-check.js");
+/******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/group-numbers/group-numbers.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/header/header.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/img-block/img-block.js");
 /******/ 	__webpack_require__("./wp-content/themes/new-school/src/markup/blocks/input-mask/input-mask.js");
