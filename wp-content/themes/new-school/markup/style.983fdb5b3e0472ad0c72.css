@@ -734,6 +734,7 @@ button:focus, input:focus, textarea:focus {
       .img-block__button {
         padding: 10px 20px;
         font-size: 18px;
+        bottom: -22px;
         right: 0; } }
     .img-block--small .img-block__button {
       position: static;
@@ -1239,7 +1240,8 @@ button:focus, input:focus, textarea:focus {
   @media (max-width: 1279px) {
     .slider__desc {
       width: 100%;
-      padding: 20px; } }
+      padding: 20px;
+      padding-bottom: 40px; } }
 
 .slider__desc-title {
   font-family: var(--font-manrope);
@@ -1377,4 +1379,4 @@ button:focus, input:focus, textarea:focus {
   border: 1px solid #000; }
 
 
-/*# sourceMappingURL=style.dda7e2b3eed3510b0b2a.css.map*/
+/*# sourceMappingURL=style.983fdb5b3e0472ad0c72.css.map*/
