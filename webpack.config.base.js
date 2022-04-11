@@ -39,8 +39,9 @@ module.exports = {
         style: fullArray,
     },
     output: {
-        filename: 'scripts.js',
-        path: path.resolve(__dirname, './wp-content/themes/new-school'),
+        filename: 'scripts.[hash].js',
+        path: path.resolve(__dirname, './wp-content/themes/new-school/markup'),
+        clean: true,
     },
 
     devtool: "source-map",
@@ -76,7 +77,7 @@ module.exports = {
                 generator: {
                     filename: (normalModule) => {
                         let filePath = normalModule.module.resourceResolveData.relativePath;
-                        filePath = filePath.replace('./wp-content/themes/new-school/', '');
+                        filePath = filePath.replace('./', '/');
                         return filePath;
                     },
                     emit: false,
@@ -86,7 +87,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].[hash].css',
         }),
     ],
 };

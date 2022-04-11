@@ -3,12 +3,12 @@
 @font-face {
   font-family: Calibri;
   font-weight: 400;
-  src: url(font/calibri-regular.ttf); }
+  src: url(/wp-content/themes/new-school/font/calibri-regular.ttf); }
 
 @font-face {
   font-family: Calibri;
   font-weight: 700;
-  src: url(font/calibri-bold.ttf); }
+  src: url(/wp-content/themes/new-school/font/calibri-bold.ttf); }
 
 :root {
   --white-color: #fff;
@@ -771,8 +771,8 @@ button:focus, input:focus, textarea:focus {
       height: 132px;
       right: 267px;
       top: -15vh;
-      mask: url(images/triangle.svg);
-      -webkit-mask: url(images/triangle.svg);
+      mask: url(/wp-content/themes/new-school/images/triangle.svg);
+      -webkit-mask: url(/wp-content/themes/new-school/images/triangle.svg);
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center center;
@@ -789,8 +789,8 @@ button:focus, input:focus, textarea:focus {
       height: 120px;
       right: 82px;
       top: 0vh;
-      mask: url(images/plus.svg);
-      -webkit-mask: url(images/plus.svg);
+      mask: url(/wp-content/themes/new-school/images/plus.svg);
+      -webkit-mask: url(/wp-content/themes/new-school/images/plus.svg);
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center center;
@@ -807,8 +807,8 @@ button:focus, input:focus, textarea:focus {
       height: 95px;
       right: 415px;
       top: 15vh;
-      mask: url(images/square.svg);
-      -webkit-mask: url(images/square.svg);
+      mask: url(/wp-content/themes/new-school/images/square.svg);
+      -webkit-mask: url(/wp-content/themes/new-school/images/square.svg);
       mask-size: contain;
       mask-repeat: no-repeat;
       mask-position: center center;
@@ -1289,8 +1289,8 @@ button:focus, input:focus, textarea:focus {
     left: 8px;
     top: 11px;
     background: white;
-    mask: url(images/arrow-down.svg);
-    -webkit-mask: url(images/arrow-down.svg);
+    mask: url(/wp-content/themes/new-school/images/arrow-down.svg);
+    -webkit-mask: url(/wp-content/themes/new-school/images/arrow-down.svg);
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center center;
@@ -1377,4 +1377,4 @@ button:focus, input:focus, textarea:focus {
   border: 1px solid #000; }
 
 
-/*# sourceMappingURL=style.css.map*/
+/*# sourceMappingURL=style.dda7e2b3eed3510b0b2a.css.map*/

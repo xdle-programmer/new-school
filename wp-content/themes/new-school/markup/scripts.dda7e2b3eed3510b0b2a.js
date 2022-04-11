@@ -34456,9 +34456,10 @@ function questionnaire($wrapper) {
       url
     };
     axios(options).then(response => {
-      userId = response.data.data[0]; // TODO: Удалить с продакшена!
+      userId = response.data.data[0]; //
+      // // TODO: Удалить с продакшена!
+      // $sendSmsInput.value = response.data.data[1];
 
-      $sendSmsInput.value = response.data.data[1];
       showScreen($sendSmsScreen);
     }).catch(error => {
       console.error(error);
@@ -35745,4 +35746,4 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=scripts.js.map
+//# sourceMappingURL=scripts.dda7e2b3eed3510b0b2a.js.map

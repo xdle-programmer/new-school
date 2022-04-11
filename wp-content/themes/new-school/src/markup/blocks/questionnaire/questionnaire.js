@@ -110,9 +110,9 @@ export function questionnaire($wrapper) {
 
         axios(options).then((response) => {
             userId = response.data.data[0];
-
-            // TODO: Удалить с продакшена!
-            $sendSmsInput.value = response.data.data[1];
+            //
+            // // TODO: Удалить с продакшена!
+            // $sendSmsInput.value = response.data.data[1];
 
             showScreen($sendSmsScreen);
         }).catch((error) => {
